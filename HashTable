@@ -1,0 +1,59 @@
+# 散列表
+2017-10-23 14:09:26
+《algorithms---Robert》
+
+*** 目标：实现符号表，而且插入和查找操作都能保证常量时间完成O(1)
+
+我们的方法借鉴了数组的结构
+把键映射为数组索引，而该数组单元保存对应的值！
+
+*** 两个核心问题
+1 如何将不同类型的对象映射为索引（整数）？
+理想状况：假设有M个键，那么就需要将其均匀映射到 0 ~ M-1
+java中的hashCode 方法，在此就能够很好理解了。
+你应该去看看不同类型的hashCode方法是怎么实现的。
+对于自定义类型，你也需要实现散列函数（hashCode 方法）
+
+一致性
+a.equals(b) 为true，那么 a.hashCode() 与 b.hashCode() 必须也相等
+所以，hash码不同，equals必是false；hash码相同，equals也可能是false。
+
+2 如何处理冲突（不同的键有可能散列到同一个索引）
+
+
+
+# 散列表应用
+1 逗号分隔信息 的 .csv 文件  处理
+The purpose of this example is to illustrate the utility and flexibility of the symbol-table abstraction. 
+
+What website has IP address  128.112.136.35 ? ( www.cs.princeton.edu ) 
+What amino acid corresponds to the codon  TCA  ? ( Serine ) 
+What was the DJIA on October 29, 1929? ( 252.38 )
+What product has UPC  0002100001086 ?( Kraft Parmesan ) 
+
+You can easily look up the answers to questions like these with LookupCSV and the appropriate  .csv files.
+
+一个键对应多个值
+搜索 关键词——结果（把结果放入一个Queue中）
+
+将键与一个set了类型的值相连，值中包含该键出现的所有位置。
+在一段程序中，位置可能是代码的行号。
+Again, we associate each key with a  SET of locations, where the occurrences of the key can be found.
+The nature and use of the location depend on the application: in a book, a location
+might be a page number; in a program, a location might be a line number; 
+
+文件搜索
+File search. Modern operating systems provide you with the ability to type a term
+and to learn the names of files containing that term. The key is the term; the
+value is the set of files containing that term.
+
+# 构建索引
+为电脑里的文件 或者 你感兴趣的网站建立索引
+
+
+
+
+
+
+
+
